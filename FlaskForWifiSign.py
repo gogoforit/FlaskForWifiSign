@@ -18,12 +18,16 @@ def query():
     ids = conn.getIds('info', {'name': name, 'date': date})
     _id = next(ids, None)
     sign_info = []
-    while _id:
-        # print(_id)
-        sign_info.append(_id)
-        _id = next(ids, None)
-    print(sign_info)
-    return render_template('query.html',sign_info = sign_info)
+    if _id == None:
+        flash('对不起，没有该学生签到信息，请确认后，重新输入！')
+        return render_template('query.html')
+    else :
+        while _id:
+            # print(_id)
+            sign_info.append(_id)
+            _id = next(ids, None)
+        print(sign_info)
+        return render_template('query.html',sign_info = sign_info)
 
 @app.route('/rigister',methods={'POST'})
 def rigister():
