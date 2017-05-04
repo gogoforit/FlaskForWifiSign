@@ -16,17 +16,17 @@ def query():
     conn = MongoPipeline()
     conn.open_connection('qiandao_last_info')
     student_sign_infos = conn.getIds('info', {'name': name, 'date': date})
-    student_sign_info = next(student_sign_info, None)
+    student_sign_info = next(student_sign_infos, None)
     #储存给前端页面的签到信息
     sign_info = []
     if student_sign_info == None:
         flash('对不起，没有该学生签到信息，请确认后，重新输入！')
         return render_template('query.html')
     else :
-        while _id:
+        while student_sign_info:
             # print(_id)
-            sign_info.append(_id)
-            _id = next(student_sign_info, None)
+            sign_info.append(student_sign_info)
+            student_sign_info = next(student_sign_infos, None)
         print(sign_info)
         return render_template('query.html',sign_info = sign_info)
 
