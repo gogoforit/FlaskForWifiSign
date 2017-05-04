@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <form action="/query" method="post">
+        姓名：
+        <input type="text" name="name">
+        日期：
+        <input type="text" name="date">
+        <input type="submit" name="submit" value="提交">
+        {% if sign_info %}
+            <ul>
+                {% for each in sign_info %}
+                    <li>
+                        <h4>签到姓名：{{ each['name']}}</h4>
+                        <h4>签到日期：{{ each['date'] }}</h4>
+                        <h4>签到课程：{{ each['class_num'] }}</h4>
+                        <h4>签到时间：{{ each['time'] }}</h4>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </form>
 </head>
 <body>
-$END$
+
 </body>
 </html>
