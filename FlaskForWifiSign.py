@@ -44,6 +44,24 @@ def rigister():
     flash('注册成功！')
     return render_template('register.html')
 
+@app.route('/modify_information',methods={'POST'})
+def modify_information():
+    form = request.form
+    name = form.get('name')
+    mac  = form.get('mac')
+    conn = MongoPipeline()
+    conn.open_connection('qiandao_mac_name')
+    judge_insert_update = conn.getIds('info',{'name':name})
+    result_insert_update = next(judge_insert_update,None)
+    if result_insert_update == None:
+        flash('无此学生！请确认后，重新输入！')
+    else:
+        _id = result_insert_update['_id']
+        conn.update_item({'_id':_id},{"$set":{'mac':mac}},'info')
+        flash('修改成功！')
+    return render_template('modify_information.html')
+
+
 @app.route('/query_info')
 def query_info():
     return render_template('query.html')
@@ -51,6 +69,10 @@ def query_info():
 @app.route('/register_info')
 def register_info():
     return render_template('register.html')
+
+@app.route('/modify_information_info')
+def modify_information_info():
+    return render_template('modify_information.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
