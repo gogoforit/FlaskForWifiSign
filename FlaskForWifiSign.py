@@ -2,7 +2,7 @@ from flask import Flask,flash,render_template,request
 from MongodbConn import MongoPipeline
 
 app = Flask(__name__)
-
+app.secret_key = "You can't guess it!"
 
 @app.route('/')
 def index():
@@ -25,9 +25,32 @@ def query():
     print(sign_info)
     return render_template('query.html',sign_info = sign_info)
 
+@app.route('/rigister',methods={'POST'})
+def rigister():
+    form = request.form
+    name = form.get('name')
+    mac  = form.get('mac')
+    student_id = form.get('student_id')
+    class_number = form.get('class_number')
+    conn = MongoPipeline()
+    conn.open_connection('qiandao_mac_name')
+    student_info = {}
+    student_info['name'] = name
+    student_info['mac']  = mac
+    student_info['studentid'] = student_id
+    student_info['class_num'] = class_number
+    student_info['_id'] = mac
+    conn.process_item(student_info,'info')
+    flash('注册成功！')
+    return render_template('register.html')
+
 @app.route('/query_info')
 def query_info():
     return render_template('query.html')
+
+@app.route('/register_info')
+def register_info():
+    return render_template('register.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -3,6 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <div>
+        <form action="/rigister" method="post">
+            <input type="text" name="name" >
+            <input type="text" name="mac"  value="mac地址">
+            <input type="text" name="student_id"  value="学号">
+            <input type="text" name="class_number"  value="班级">
+            <input type="submit" name="submit" value="提交">
+        </form>
+    </div>
+    <div>
+        {{ get_flashed_messages()[0] }}
+    </div>
 </head>
 <body>
 
