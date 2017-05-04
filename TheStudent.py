@@ -19,7 +19,8 @@ class student():
         conn.process_item(student_info,'info')
 
     #查询数据库中，是否已经有这些元素
-    def query_database(self,query_key,query_value):
+    @staticmethod
+    def query_database(query_key,query_value):
         conn = MongoPipeline()
         conn.open_connection('qiandao_mac_name')
         query_info = conn.getIds('info',{query_key:query_value})

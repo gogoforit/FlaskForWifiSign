@@ -40,8 +40,8 @@ def rigister():
     student_id = form.get('student_id')
     class_number = form.get('class_number')
     register_student = student(name,mac,student_id,class_number)
-    judge_mac = register_student.query_database('mac',mac)
-    judge_name = register_student.query_database('name',name)
+    judge_mac = student.query_database('mac',mac)
+    judge_name = student.query_database('name',name)
     if judge_mac == True:
         flash('mac地址与数据库中信息冲突，请确认后，重新输入！')
         return render_template('register.html')
