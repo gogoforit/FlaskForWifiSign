@@ -62,7 +62,13 @@ def modify_information():
     conn.open_connection('qiandao_mac_name')
     judge_insert_update = conn.getIds('info',{'name':name})
     result_insert_update = next(judge_insert_update,None)
-    if result_insert_update == None:
+    query_mac = student.query_database('mac',mac)
+    query_name = student.query_database('name',name)
+    if query_name == False:
+        flash('数据库中没有您的信息，请确认后，重新输入！')
+    elif query_mac == True:
+        flash('该mac已经被注册，请确认后，重新输入！')
+    elif result_insert_update == None:
         flash('无此学生！请确认后，重新输入！')
     else:
         _id = result_insert_update['_id']
