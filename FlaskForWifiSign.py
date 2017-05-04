@@ -1,5 +1,6 @@
 from flask import Flask,flash,render_template,request
 from MongodbConn import MongoPipeline
+from TheStudent import student
 
 app = Flask(__name__)
 app.secret_key = "You can't guess it!"
@@ -30,6 +31,7 @@ def query():
         print(sign_info)
         return render_template('query.html',sign_info = sign_info)
 
+#注册新同学
 @app.route('/rigister',methods={'POST'})
 def rigister():
     form = request.form
@@ -37,18 +39,20 @@ def rigister():
     mac  = form.get('mac')
     student_id = form.get('student_id')
     class_number = form.get('class_number')
-    conn = MongoPipeline()
-    conn.open_connection('qiandao_mac_name')
-    student_info = {}
-    student_info['name'] = name
-    student_info['mac']  = mac
-    student_info['studentid'] = student_id
-    student_info['class_num'] = class_number
-    student_info['_id'] = mac
-    conn.process_item(student_info,'info')
-    flash('注册成功！')
-    return render_template('register.html')
-
+    register_student = student(name,mac,student_id,class_number)
+    judge_mac = register_student.query_database('mac',mac)
+    judge_name = register_student.query_database('name',name)
+    if judge_mac == True:
+        flash('mac地址与数据库中信息冲突，请确认后，重新输入！')
+        return render_template('register.html')
+    elif judge_name == True:
+        flash('姓名与数据库中信息冲突，请确认后，重新输入！')
+        return render_template('register.html')
+    else:
+        register_student.save()
+        flash('注册成功！')
+        return render_template('register.html')
+#修改mac地址
 @app.route('/modify_information',methods={'POST'})
 def modify_information():
     form = request.form
