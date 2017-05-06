@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>网信院签到</title>
     <style>
         body {
             padding: 0;
@@ -11,10 +11,11 @@
     </style>
     <div>
         <a>
-            <img class="logo" src="logo.png" width="2000px" height="60px">
+            <img class="logo" src={{ url_for('static',filename='logo.png') }} width="2000px" height="60px">
         </a>
-
     </div>
+    {% block body %}
+    {% endblock %}
 </head>
 <body >
 

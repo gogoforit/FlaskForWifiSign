@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{% extends "base.html" %}
+
+
+
+{% block body %}
     <style>
         #main_button {
             position: absolute;
@@ -14,12 +14,9 @@
             left: 0;
         }
     </style>
-
-</head>
-<body>
-    <div id="header">
-        <img class="logo" src={{ url_for('static',filename='logo.png') }} width="2000px" height="60px">
-    </div>
+{#    <div id="header">#}
+{#        <img class="logo" src={{ url_for('static',filename='logo.png') }} width="2000px" height="60px">#}
+{#    </div>#}
     <div id="main_button">
         <a href="query_info">
         <input type="button" name="query" value="查询">
@@ -31,5 +28,4 @@
             <input type="button" name="modify_information" value="修改信息">
         </a>
     </div>
-</body>
-</html>
+{% endblock %}

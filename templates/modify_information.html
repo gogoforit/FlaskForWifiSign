@@ -1,16 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <form action="/modify_information" method="post">
+{% extends "base.html" %}
+{% block body %}
+
+    <style>
+        #main_button {
+            position: absolute;
+            top: 45%;
+            left: 45%;
+        }
+        #header {
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <form action="/modify_information" method="post" id="main_button">
         <input type="text" name="name" value="姓名">
         <input type="text" name="mac"  value="mac">
         <input type="submit" name="submit" value="提交">
         {{ get_flashed_messages()[0] }}
     </form>
-</head>
-<body>
+{% endblock %}
 
-</body>
-</html>

@@ -1,9 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <form action="/query" method="post">
+{% extends "base.html" %}
+{% block body %}
+    <style>
+        #main_button {
+            position: absolute;
+            top: 45%;
+            left: 45%;
+        }
+        #header {
+            position: absolute;
+            left: 0;
+        }
+    </style>
+    <form action="/query" method="post" id="main_button">
         姓名：
         <input type="text" name="name">
         日期：
@@ -23,8 +31,4 @@
         {% endif %}
     </form>
     {{ get_flashed_messages()[0] }}
-</head>
-<body>
-
-</body>
-</html>
+{% endblock %}

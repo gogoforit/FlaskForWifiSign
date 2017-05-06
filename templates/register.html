@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+{%  extends 'base.html'%}
+{% block body %}
+    <style>
+        #main_button {
+            position: absolute;
+            top: 45%;
+            left: 45%;
+        }
+        #header {
+            position: absolute;
+            left: 0;
+        }
+    </style>
     <div>
-        <form action="/rigister" method="post">
+        <form action="/rigister" method="post" id="main_button">
             <input type="text" name="name" >
             <input type="text" name="mac"  value="mac地址">
             <input type="text" name="student_id"  value="学号">
@@ -15,8 +23,4 @@
     <div>
         {{ get_flashed_messages()[0] }}
     </div>
-</head>
-<body>
-
-</body>
-</html>
+{% endblock %}
