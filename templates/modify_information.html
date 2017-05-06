@@ -12,10 +12,17 @@
             left: 0;
         }
     </style>
-    <form action="/modify_information" method="post" id="main_button">
-        <input type="text" name="name" value="姓名">
-        <input type="text" name="mac"  value="mac">
+    <form action="/modify_information" method="post" id="main_button" >
+        姓名：
+        <br>
+        <input type="text" name="name" >
+        <br>
+        MAC：
+        <br>
+        <input type="text" name="mac" >
+        <br>
         <input type="submit" name="submit" value="提交">
+        <br>
         {{ get_flashed_messages()[0] }}
     </form>
 {% endblock %}
