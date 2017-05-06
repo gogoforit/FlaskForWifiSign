@@ -3,17 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <a href="query_info">
-        <input type="button" name="query" value="查询">
-    </a>
-    <a href="register_info">
-        <input type="button" name="register" value="注册">
-    </a>
-    <a href="modify_information_info">
-        <input type="button" name="modify_information" value="修改信息">
-    </a>
+    <style>
+        #main_button {
+            position: absolute;
+            top: 45%;
+            left: 45%;
+        }
+        #header {
+            position: absolute;
+            left: 0;
+        }
+    </style>
+
 </head>
 <body>
-
+    <div id="header">
+        <img class="logo" src="logo.png" width="2000px" height="60px">
+    </div>
+    <div id="main_button">
+        <a href="query_info">
+        <input type="button" name="query" value="查询">
+        </a>
+        <a href="register_info">
+        <input type="button" name="register" value="注册">
+        </a>
+        <a href="modify_information_info">
+            <input type="button" name="modify_information" value="修改信息">
+        </a>
+    </div>
 </body>
 </html>
