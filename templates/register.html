@@ -13,14 +13,28 @@
     </style>
     <div>
         <form action="/rigister" method="post" id="main_button">
+            姓名：
+            <br>
             <input type="text" name="name" >
-            <input type="text" name="mac"  value="mac地址">
-            <input type="text" name="student_id"  value="学号">
-            <input type="text" name="class_number"  value="班级">
+            <br>
+            MAC:
+            <br>
+            <input type="text" name="mac"  >
+            <br>
+            学号：
+            <br>
+            <input type="text" name="student_id" >
+            <br>
+            班级：
+            <br>
+            <input type="text" name="class_number" >
+            <br>
             <input type="submit" name="submit" value="提交">
+            <a href="/">
+                <input type="button" value="返回">
+            </a>
+            <br>
+            {{ get_flashed_messages()[0] }}
         </form>
-    </div>
-    <div>
-        {{ get_flashed_messages()[0] }}
     </div>
 {% endblock %}
