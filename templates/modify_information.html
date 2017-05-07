@@ -1,29 +1,15 @@
 {% extends "base.html" %}
-{% block body %}
+{% block the_body %}
 
-    <style>
-        #main_button {
-            position: absolute;
-            top: 45%;
-            left: 45%;
-        }
-        #header {
-            position: absolute;
-            left: 0;
-        }
-    </style>
     <form action="/modify_information" method="post" id="main_button" >
-        姓名：
-        <br>
+        <p class="type_text">姓名：</p>
         <input type="text" name="name" >
-        <br>
-        MAC：
-        <br>
+        <p class="type_text">MAC：</p>
         <input type="text" name="mac" >
-        <br>
-        <input type="submit" name="submit" value="提交">
+        <br><br>
+        <input type="submit" name="submit" value="提交" class="btn btn-default btn-success">
         <a href="/">
-            <input type="button" value="返回">
+            <input type="button" value="返回" class="btn btn-default btn-primary">
         </a>
         <br>
         {{ get_flashed_messages()[0] }}
