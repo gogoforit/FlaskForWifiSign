@@ -1,32 +1,30 @@
 {% extends "base.html" %}
 
 
+{% block content   %}
+{% block the_body %}
+<link rel="stylesheet" type="text/css" href={{ url_for('static',filename='css/style.css') }}>
 
-{% block body %}
-    <style>
-        #main_button {
-            position: absolute;
-            top: 45%;
-            left: 45%;
-        }
-        #header {
-            position: absolute;
-            left: 0;
-        }
-    </style>
-{#    <div id="header">#}
 {#        <img class="logo" src={{ url_for('static',filename='logo.png') }} width="2000px" height="60px">#}
 {#    </div>#}
     <div id="main_button">
         <a href="query_info">
-        <input type="button" name="query" value="查         询">
+        <input type="button" name="query" value="查         询"  class="btn btn-info btn-lg btn-block">
         </a><br>
         <a href="register_info">
-        <input type="button" name="register" value="注         册">
+        <input type="button" name="register" value="注         册" class="btn btn-info btn-lg btn-block">
         </a><br>
         <a href="modify_information_info">
-            <input type="button" name="modify_information" value="修改信息">
+            <input type="button" name="modify_information" value="修改信息" class="btn btn-info btn-lg btn-block">
         </a>
-
     </div>
+    <div class="matter_attention">
+			<p>
+				 <strong>注意事项：</strong><br>
+                  日期格式：2017-05-07<br>
+                  班级格式：15180XX<br>
+                  mac格式：12-v5-f4-e9-wf-v5,<strong>字母小写，'-'为分隔符</strong>
+			</p>
+    </div>
+{% endblock %}
 {% endblock %}
