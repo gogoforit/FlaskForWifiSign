@@ -1,8 +1,10 @@
 from flask import Flask,flash,render_template,request
+from flask.ext.bootstrap import Bootstrap
 from MongodbConn import MongoPipeline
 from TheStudent import student
 
 app = Flask(__name__)
+bootstrap = Bootstrap(app)
 app.secret_key = "You can't guess it!"
 
 @app.route('/')
@@ -90,4 +92,4 @@ def modify_information_info():
     return render_template('modify_information.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=9000)
