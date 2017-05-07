@@ -1,9 +1,8 @@
-h2{
-    background-color: aqua;
-}
+
 img{
     background-position: center;
 }
+
 .pic_front{
     width: 1000px;
     height: 60px;
@@ -13,21 +12,29 @@ img{
     position: absolute;
     right: 100px;
 }
+.matter_attention{
+    position: absolute;
+    top:60%;
+    left:40%;
+    font-size: 20px;
+}
 
- body {
-            padding: 0;
-            margin: 0;
-            }
-        #main_button {
-            position: absolute;
-            top: 45%;
-            left: 45%;
+body {
+    padding: 0;
+    margin: 0;
+}
 
-        }
-        #header {
-            position: absolute;
-            left: 0;
-        }
-        #small_button{
-            background-color: aqua;
-        }
+#main_button {
+    position: absolute;
+    top: 28%;
+    left: 45%;
+}
+
+#header {
+    position: absolute;
+    left: 0;
+}
+
+#small_button{
+    background-color: aqua;
+}
