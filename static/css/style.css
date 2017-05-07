@@ -1,7 +1,5 @@
 
-img{
-    background-position: center;
-}
+
 
 .pic_front{
     width: 1000px;
@@ -12,10 +10,15 @@ img{
     position: absolute;
     right: 100px;
 }
+
 .matter_attention{
     position: absolute;
     top:60%;
     left:40%;
+    font-size: 20px;
+}
+
+.type_text{
     font-size: 20px;
 }
 

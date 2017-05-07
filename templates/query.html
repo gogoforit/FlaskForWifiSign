@@ -1,28 +1,17 @@
 {% extends "base.html" %}
-{% block body %}
-    <style>
-        #main_button {
-            position: absolute;
-            top: 45%;
-            left: 45%;
-        }
-        #header {
-            position: absolute;
-            left: 0;
-        }
-    </style>
+{% block the_body %}
+
     <form action="/query" method="post" id="main_button">
-        姓名：
-        <br>
+
+        <p class="type_text">姓名：</p>
+
         <input type="text" name="name">
-        <br>
-        日期：
-        <br>
+        <p class="type_text">日期：</p>
         <input type="text" name="date">
-        <br>
-        <input type="submit" name="submit" value="提交">
+        <br><br>
+        <input type="submit" name="submit" value="提交" class="btn btn-default btn-success">
         <a href="/">
-                <input type="button" value="返回">
+            <input type="button" value="返回" class="btn btn-default btn-primary">
         </a>
         <br>
         {% if sign_info %}
